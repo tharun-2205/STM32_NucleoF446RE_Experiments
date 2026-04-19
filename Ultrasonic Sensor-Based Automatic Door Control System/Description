@@ -1,0 +1,2 @@
+This project implements an automatic door system using an ultrasonic sensor to detect the presence of a person and a servo motor to control door movement. The ultrasonic sensor continuously measures the distance to nearby objects, and when a person is detected within a predefined threshold range, the system automatically opens the door by rotating the servo motor. After a short delay or when no object is detected, the door closes automatically.
+
