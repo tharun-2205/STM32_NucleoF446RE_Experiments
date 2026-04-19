@@ -1,0 +1,3 @@
+This project implements a valve position control system where a push button is used to cycle through predefined valve positions, a servo motor acts as the valve actuator, and an OLED display provides real-time visual feedback of the selected position. Each button press changes the valve state (e.g., Closed, Half Open, Fully Open), and the servo motor rotates to corresponding angles (0°, 90°, 180°). The OLED displays the current valve status, enabling clear monitoring and control.
+
+The system demonstrates a simple yet effective embedded control mechanism commonly used in industrial automation for regulating flow in pipelines, fluid systems, and process control applications.
