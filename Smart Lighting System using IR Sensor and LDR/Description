@@ -1,0 +1,3 @@
+This project implements an energy-efficient smart lighting system that combines an IR sensor and an LDR to control an LED automatically. The LDR continuously monitors ambient light conditions to determine whether it is day or night, while the IR sensor detects the presence of a person or object. The LED turns ON only when it is dark and motion is detected, and remains OFF during daylight or when no presence is detected.
+
+This dual-condition control ensures optimized power usage and intelligent operation, making it suitable for applications such as automatic corridor lighting, street lighting, and security systems.
