@@ -1,0 +1,1 @@
+A real-time light intensity measurement system using an onboard LDR sensor and ADC. The measured values are processed and displayed on an OLED screen as percentage and categorized levels (Dark/Medium/Bright). Applicable in smart lighting and energy-efficient systems.
