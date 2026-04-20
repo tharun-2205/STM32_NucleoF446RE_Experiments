@@ -1,0 +1,146 @@
+# 🎛️ Trimpot-Controlled OLED Menu System using STM32
+
+## 📌 Overview
+
+This project implements a **menu-driven embedded interface** using a trimpot (analog input) and an OLED display. The trimpot is used to navigate between different modes, and the selected mode is displayed on the OLED with a cursor indicator.
+
+This system demonstrates analog-based user interaction without buttons, providing smooth and intuitive control.
+
+---
+
+## 🎯 Features
+
+* Analog input-based menu navigation
+* OLED display interface (I2C)
+* Real-time mode selection
+* Flicker-free UI (updates only on change)
+* Simple embedded UI design
+
+---
+
+## 🧠 Working Principle
+
+The trimpot provides a variable analog voltage that is read using the ADC of the STM32. The ADC value is divided into ranges, each corresponding to a specific menu option:
+
+* Low range → Mode 1
+* Mid range → Mode 2
+* High range → Mode 3
+
+The selected mode is highlighted on the OLED using a cursor (`>`), and the display updates only when the selection changes.
+
+---
+
+## 🔧 Hardware Used
+
+* STM32 (e.g., STM32F446RE / Nucleo board)
+* Trimpot (Potentiometer)
+* SSD1306 OLED Display (I2C)
+
+---
+
+## 🔌 Pin Configuration
+
+| Peripheral    | Pin |
+| ------------- | --- |
+| Trimpot (ADC) | PA0 |
+| I2C SCL       | PB8 |
+| I2C SDA       | PB9 |
+
+---
+
+## ⚙️ Software Configuration
+
+* IDE: STM32CubeIDE
+* Language: C (HAL Drivers)
+* ADC Resolution: 12-bit
+* I2C Speed: 100 kHz
+
+---
+
+## 📺 OLED Display
+
+Example UI:
+
+```id="m1a9xq"
+>MODE1
+ MODE2
+ MODE3
+```
+
+* `>` indicates selected mode
+* Display updates only when selection changes
+
+---
+
+## 🔄 System Logic
+
+```id="5gnc7y"
+Read ADC → Map to range → Select mode → Update OLED
+```
+
+---
+
+## 📊 ADC Mapping
+
+```id="q4c2zo"
+0     - 1365  → MODE1
+1365  - 2730  → MODE2
+2730  - 4095  → MODE3
+```
+
+---
+
+## ▶️ How to Run
+
+1. Open project in STM32CubeIDE
+2. Build and flash the code
+3. Rotate trimpot
+4. Observe menu selection change on OLED
+
+---
+
+## ⚠️ Notes
+
+* Ensure stable power for trimpot
+* ADC values may slightly vary → adjust thresholds if needed
+* OLED I2C address typically `0x3C`
+
+---
+
+## 📁 Project Structure
+
+```id="p9k2mz"
+Core/
+ ├── Src/
+ │    └── main.c
+ ├── Inc/
+Drivers/
+project.ioc
+```
+
+---
+
+## 🧠 Concepts Demonstrated
+
+* ADC (Analog input processing)
+* Embedded UI design
+* Range-based decision logic
+* I2C communication (OLED)
+* Human-machine interaction
+
+---
+
+## 🌍 Applications
+
+* Embedded configuration systems
+* Menu-driven controllers
+* Industrial control panels
+* Analog input-based interfaces
+
+---
+
+## 🎯 Conclusion
+
+This project demonstrates a smooth and efficient method of user interaction in embedded systems using analog input instead of discrete buttons, making it suitable for compact and intuitive control systems.
+
+---
