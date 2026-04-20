@@ -1,0 +1,128 @@
+# 🚪 Automatic Door Control System using STM32 (Ultrasonic + Servo)
+
+## 📌 Overview
+
+This project implements an **automatic door control system** using an ultrasonic sensor (HC-SR04) and a servo motor with an STM32 microcontroller. The system detects the presence of a person/object within a predefined distance and automatically opens and closes the door.
+
+---
+
+## 🎯 Features
+
+* Contactless door operation
+* Real-time distance measurement
+* Automatic open/close mechanism
+* Servo motor control using PWM
+* Microsecond precision timing using hardware timer
+
+---
+
+## 🧠 Working Principle
+
+The ultrasonic sensor continuously measures the distance to nearby objects. When an object is detected within a threshold distance (e.g., 20 cm), the system:
+
+1. Opens the door (servo rotates)
+2. Waits until the object moves away
+3. Closes the door automatically
+
+This ensures smooth and realistic automatic door behavior.
+
+---
+
+## 🔧 Hardware Used
+
+* STM32 (e.g., STM32F446RE / Nucleo board)
+* HC-SR04 Ultrasonic Sensor
+* Servo Motor
+
+---
+
+## 🔌 Pin Configuration
+
+| Peripheral | Pin            |
+| ---------- | -------------- |
+| TRIG       | PB5            |
+| ECHO       | PA8            |
+| Servo PWM  | PC7 (TIM3 CH2) |
+
+---
+
+## ⚙️ Software Configuration
+
+* IDE: STM32CubeIDE
+* Language: C (HAL Drivers)
+* Timer 2 → Microsecond delay (1 MHz)
+* Timer 3 → PWM (50 Hz for servo)
+
+---
+
+## 📏 Distance Calculation
+
+```id="dcalc01"
+distance (cm) = (time_us × 0.0343) / 2
+```
+
+---
+
+## 🔄 System Logic
+
+```id="flow01"
+Read Distance → Check Threshold → Open Door → Wait → Close Door
+```
+
+---
+
+## ▶️ How to Run
+
+1. Open project in STM32CubeIDE
+2. Build and flash the code
+3. Place object within ~20 cm
+4. Observe door opening and closing
+
+---
+
+## ⚠️ Notes
+
+* Ensure stable **5V supply for servo motor**
+* Ultrasonic sensor must be properly aligned
+* Use common ground for all components
+* Threshold distance can be modified in code
+
+---
+
+## 📁 Project Structure
+
+```id="struct01"
+Core/
+ ├── Src/
+ │    └── main.c
+ ├── Inc/
+Drivers/
+project.ioc
+```
+
+---
+
+## 🧠 Concepts Demonstrated
+
+* Ultrasonic sensing (time-of-flight)
+* Timer-based microsecond delay
+* PWM-based servo control
+* Real-time embedded decision logic
+* Sensor-actuator integration
+
+---
+
+## 🌍 Applications
+
+* Automatic doors (malls, offices)
+* Touchless access systems
+* Smart home automation
+* Industrial entry systems
+
+---
+
+## 🎯 Conclusion
+
+This project demonstrates a real-world embedded automation system combining sensing, timing, and actuation to achieve contactless control, widely used in modern smart infrastructure.
+
+---
