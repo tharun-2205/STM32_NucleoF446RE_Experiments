@@ -1,0 +1,137 @@
+# 🔧 Industrial Valve Position Control using STM32 (Button + Servo + OLED)
+
+## 📌 Overview
+
+This project implements a **valve position control system** using a push button, servo motor, and OLED display. The system allows the user to cycle through predefined valve positions (LEFT, CENTER, RIGHT) using a single button, while the OLED provides real-time visual feedback of the selected state.
+
+---
+
+## 🎯 Features
+
+* Button-based mode selection
+* Servo motor position control (0°, 90°, 180°)
+* OLED-based user interface
+* Debounced input handling
+* Real-time embedded control
+
+---
+
+## 🧠 Working Principle
+
+A push button connected to a GPIO pin is used to cycle through three modes. Each mode corresponds to a specific servo position:
+
+* LEFT → 0°
+* CENTER → 90°
+* RIGHT → 180°
+
+The selected mode is displayed on the OLED with a cursor (`>`), and the servo motor moves accordingly using PWM signals.
+
+---
+
+## 🔧 Hardware Used
+
+* STM32 (e.g., STM32F446RE / Nucleo board)
+* Servo Motor
+* SSD1306 OLED Display (I2C)
+* Push Button
+
+---
+
+## 🔌 Pin Configuration
+
+| Peripheral | Pin                  |
+| ---------- | -------------------- |
+| Button     | PA6                  |
+| Servo PWM  | TIM3 CH2 (e.g., PC7) |
+| I2C SCL    | PB8                  |
+| I2C SDA    | PB9                  |
+
+---
+
+## ⚙️ Software Configuration
+
+* IDE: STM32CubeIDE
+* Language: C (HAL Drivers)
+* Timer: PWM Mode (Servo control)
+* I2C: 100 kHz
+* GPIO: Input (Pull-up)
+
+---
+
+## 📺 OLED Display
+
+Example UI:
+
+```id="z9v4f1"
+> LEFT
+  CENTER
+  RIGHT
+```
+
+* `>` indicates selected mode
+* Display updates only when selection changes
+
+---
+
+## 🔄 System Flow
+
+```id="d1n6zs"
+Button Press → Mode Change → OLED Update → Servo Movement
+```
+
+---
+
+## ▶️ How to Run
+
+1. Open project in STM32CubeIDE
+2. Build and flash the code
+3. Press button to cycle through modes
+4. Observe servo movement and OLED updates
+
+---
+
+## ⚠️ Notes
+
+* Ensure servo is powered properly (external 5V recommended)
+* Button should be configured with pull-up resistor
+* OLED I2C address typically `0x3C`
+
+---
+
+## 📁 Project Structure
+
+```id="u4g8sz"
+Core/
+ ├── Src/
+ │    └── main.c
+ ├── Inc/
+Drivers/
+project.ioc
+```
+
+---
+
+## 🧠 Concepts Demonstrated
+
+* PWM-based actuator control
+* GPIO input handling with debounce
+* I2C communication (OLED)
+* Embedded UI design
+* State machine implementation
+
+---
+
+## 🌍 Applications
+
+* Industrial valve control systems
+* Flow regulation in pipelines
+* Smart actuator systems
+* Embedded UI-based controllers
+
+---
+
+## 🎯 Conclusion
+
+This project demonstrates a practical embedded control system combining user input, actuator control, and real-time display. It simulates industrial valve positioning using a simple yet effective design.
+
+---
