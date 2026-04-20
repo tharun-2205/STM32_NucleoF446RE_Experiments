@@ -1,0 +1,134 @@
+# 🌞 Digital Lux Meter using STM32 (LDR + OLED)
+
+## 📌 Overview
+
+This project implements a **Digital Lux Meter** using an onboard **LDR (Light Dependent Resistor)** and an **OLED display** with an STM32 microcontroller. The system measures ambient light intensity using the ADC and displays the raw value along with a percentage representation on the OLED in real time.
+
+---
+
+## 🎯 Features
+
+* Real-time light intensity measurement
+* ADC-based analog signal processing
+* OLED display output (I2C)
+* Compact embedded UI
+* Works with onboard LDR (no external resistor required)
+
+---
+
+## 🧠 Working Principle
+
+The onboard LDR provides an analog voltage based on ambient light conditions. This voltage is converted into a digital value using the ADC of the STM32. The value is then scaled into a percentage and displayed on the OLED.
+
+---
+
+## 🔧 Hardware Used
+
+* STM32 (e.g., STM32F446RE / Nucleo board)
+* Onboard LDR sensor
+* SSD1306 OLED Display (I2C)
+
+---
+
+## 🔌 Pin Configuration
+
+| Peripheral | Pin |
+| ---------- | --- |
+| LDR (ADC)  | PA0 |
+| I2C SCL    | PB8 |
+| I2C SDA    | PB9 |
+
+---
+
+## ⚙️ Software Configuration
+
+* IDE: STM32CubeIDE
+* Language: C (HAL Drivers)
+* ADC Resolution: 12-bit
+* I2C Speed: 100 kHz
+
+---
+
+## 📊 Output
+
+The OLED displays:
+
+* Raw ADC value (0–4095)
+* Light intensity percentage (0–100%)
+
+Example:
+
+```
+ADC: 2345
+57%
+```
+
+---
+
+## 🚀 How It Works
+
+1. ADC reads analog voltage from LDR
+2. Value is converted to digital (0–4095)
+3. Percentage is calculated
+4. Data is displayed on OLED
+5. System updates every 300 ms
+
+---
+
+## ▶️ How to Run
+
+1. Open project in STM32CubeIDE
+2. Build and flash the code
+3. Observe OLED output
+4. Change light conditions to see updates
+
+---
+
+## ⚠️ Notes
+
+* If readings are inverted (dark = high value), modify:
+
+```c
+percent = 100 - ((adc * 100) / 4095);
+```
+
+* Ensure correct OLED I2C address (0x3C or 0x78)
+
+---
+
+## 📁 Project Structure
+
+```
+Core/
+ ├── Src/
+ │    └── main.c
+ ├── Inc/
+Drivers/
+project.ioc
+```
+
+---
+
+## 🧠 Concepts Demonstrated
+
+* ADC (Analog to Digital Conversion)
+* Sensor interfacing
+* I2C communication
+* Embedded UI design
+
+---
+
+## 🌍 Applications
+
+* Smart lighting systems
+* Automatic brightness control
+* Energy-efficient systems
+* Environmental monitoring
+
+---
+
+## 🎯 Conclusion
+
+This project demonstrates how analog sensor data can be processed and visualized in real time using embedded systems, forming the basis for smart and energy-efficient applications.
+
+---
