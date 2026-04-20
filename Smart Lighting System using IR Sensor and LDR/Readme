@@ -1,0 +1,138 @@
+# 💡 Smart Lighting System using STM32 (LDR + IR + LED)
+
+## 📌 Overview
+
+This project implements a **smart lighting system** using an LDR (Light Dependent Resistor) and an IR sensor with an STM32 microcontroller. The system intelligently controls an LED based on ambient light conditions and object detection, ensuring energy-efficient operation.
+
+---
+
+## 🎯 Features
+
+* Automatic lighting based on ambient light
+* Motion/object detection using IR sensor
+* Energy-efficient operation (dual-condition control)
+* Real-time embedded decision logic
+* Simple and reliable implementation
+
+---
+
+## 🧠 Working Principle
+
+The system reads ambient light intensity using an LDR connected to the ADC and detects object presence using an IR sensor (digital input).
+
+The LED turns ON **only when both conditions are satisfied**:
+
+* Environment is **dark**
+* Motion/object is **detected**
+
+Otherwise, the LED remains OFF.
+
+---
+
+## 🔧 Hardware Used
+
+* STM32 (e.g., STM32F446RE / Nucleo board)
+* LDR sensor (onboard or external)
+* IR sensor module
+* LED
+
+---
+
+## 🔌 Pin Configuration
+
+| Peripheral | Pin  |
+| ---------- | ---- |
+| LDR (ADC)  | PA0  |
+| IR Sensor  | PB10 |
+| LED        | PB3  |
+
+---
+
+## ⚙️ Software Configuration
+
+* IDE: STM32CubeIDE
+* Language: C (HAL Drivers)
+* ADC Resolution: 12-bit
+* GPIO:
+
+  * Input (IR sensor) with pull-down
+  * Output (LED)
+
+---
+
+## 🔄 System Logic
+
+```id="q5g7ln"
+IF (Dark AND Motion Detected)
+    LED = ON
+ELSE
+    LED = OFF
+```
+
+---
+
+## 📊 Threshold Setting
+
+```id="yzgk9v"
+#define THRESHOLD 2000
+```
+
+* Adjust this value based on your lighting conditions
+* Lower value → more sensitive to darkness
+
+---
+
+## ▶️ How to Run
+
+1. Open project in STM32CubeIDE
+2. Build and flash the code
+3. Place system in different lighting conditions
+4. Trigger IR sensor and observe LED behavior
+
+---
+
+## ⚠️ Notes
+
+* Ensure correct IR sensor logic (HIGH/LOW may vary by module)
+* Calibrate LDR threshold for accurate detection
+* Onboard LDR may have inverted response (adjust logic if needed)
+
+---
+
+## 📁 Project Structure
+
+```id="o7u5qa"
+Core/
+ ├── Src/
+ │    └── main.c
+ ├── Inc/
+Drivers/
+project.ioc
+```
+
+---
+
+## 🧠 Concepts Demonstrated
+
+* ADC (Analog signal processing)
+* Digital input sensing (IR sensor)
+* Conditional logic (multi-sensor fusion)
+* GPIO output control
+* Embedded automation systems
+
+---
+
+## 🌍 Applications
+
+* Smart street lighting
+* Automatic corridor lighting
+* Security lighting systems
+* Energy-efficient home automation
+
+---
+
+## 🎯 Conclusion
+
+This project demonstrates an intelligent lighting control system using multiple sensors, combining environmental sensing and motion detection to achieve efficient and automated operation.
+
+---
